@@ -57,12 +57,22 @@ const Note = (props) => {
   };
 
   const handleEditClick = () => {
-    // Si estás editando, llama a la función para editar
+    
       editNoteToDB();
   }
 
   return (
     <div className="Note" data-testid="Note">
+      <label>
+        id
+        <input
+        name="UserID"
+        type="text"
+defaultValue={formData.UserID}
+
+        />
+
+      </label>
       <TextField
         id="outlined-basic"
         name="Title"
