@@ -171,19 +171,19 @@ const Home = () => {
       axios
       .post(`${urlDelApi}/notes`, formData)
       .then(function (response) {
-        // calling reset action
+       
         handleReset();
       })
         .then(function (response) {
-          // handle success
+          
           callAPINotes();
         })
         .catch(function (error) {
-          // handle error
+          
           console.log(error);
         })
         .finally(function () {
-          // always executed
+          
         });
     };
 
@@ -193,7 +193,7 @@ const Home = () => {
     };
 
 
-    //codigo local para bd
+    /*codigo local para bd*/
   const insertNoteToDB = () => {
     axios
       .post(`${urlDelApi}/notes`, {
@@ -239,38 +239,34 @@ const Home = () => {
         
           <Grid item xs={3} style={{}}>
           <form onSubmit={handleSubmit}>
-          
-          
-          <label>
-          UserID:
-          <input
-            type="text"
-            name="UserID"
-            value={formData.UserID}
+        <TextField
+             type="text"
+             name="UserID"
+            required
+            label="UserID"
             onChange={handleChange}
+            variant="standard"
           />
-        </label>
         <br />
 
-<label>
-  Título:
-  <input
-    type="text"
-    name="Title"
-    value={formData.Title}
-    onChange={handleChange}
-  />
-</label>
+<TextField
+            type="text"
+            name="Title"
+            value={formData.Title}
+            onChange={handleChange}
+            label="Titulo"
+            variant="standard"
+          />
 <br />
 
-<label>
-  Contenido:
-  <textarea
-    name="Content"
-    value={formData.Content}
-    onChange={handleChange}
-  />
-</label>
+<TextField
+           name="Content"
+           value={formData.Content}
+           onChange={handleChange}
+            label="informacion "
+            variant="outlined"
+            
+          />
 <br /><br />
 <Button  type="submit" variant="contained"color="success" sx={{ mx: 2 }}>
             Insertar
